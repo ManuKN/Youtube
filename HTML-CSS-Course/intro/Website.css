@@ -1,0 +1,77 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-color: linear-gradient(to bottom right and left, darkgrey, darkolivegreen);
+    transition: background-color 0.5s;
+}
+
+.page {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.2fr 1.5fr 1fr 1fr 0.5fr;
+    grid-template-areas: 
+        "navbar navbar navbar navbar"
+        "sidebar main main main"
+        "sidebar section1 section2 section2"
+        "sidebar section3 section4 section4"
+        "sidebar footer footer footer";
+    gap: 20px;
+    height: 100vh;
+    width: 100%;
+    animation: fadeIn ease-in-out;
+}
+
+nav, main, #sidebar, #section1, #section2, #section3, #section4, footer {
+    border-color: blue;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+nav:hover, main:hover, #sidebar:hover, #section1:hover, #section2:hover, #section3:hover, #section4:hover, footer:hover {
+    transform: scale(0.8);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+#navbar, #main, #sidebar, #section1, #section2, #section3, #section4, #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: black;
+}
+
+#navbar { background-color: rgb(133, 228, 188); }
+#main { background-color: rgb(20, 240, 93); }
+#sidebar { background-color: rgb(236, 19, 236); }
+#section1 { background-color: rgb(17, 215, 230); }
+#section2 { background-color: rgb(11, 26, 233); }
+#section3 { background-color: rgb(167, 11, 240); }
+#section4 { background-color: rgb(235, 220, 11); }
+#footer { background-color: rgb(247, 6, 38); }
+
+@media(max-width: 768px) {
+    .page {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "navbar navbar navbar navbar"
+            "sidebar main main main"
+            "sidebar section1 section2 section2"
+            "sidebar section3 section4 section4"
+            "sidebar footer footer footer";
+        gap: 20px;
+        height: 100vh;
+        width: 100%;
+        animation: fadeIn ease-in-out;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
